@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="com.epistimis.face.feature.source" version="1.0.0.202311072016" label="Face Feature  Developer Resources" provider-name="Epistimis LLC">
+  <includes id="com.epistimis.face.feature" version="1.0.0.202311072016"/>
+  <includes id="com.epistimis.uddl.feature.source" version="1.0.0.202311071617"/>
+  <includes id="com.epistimis.uddl.query.feature.source" version="1.0.0.202311070530"/>
+  <plugin id="com.epistimis.face.source" version="1.0.0.202311072016" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="com.epistimis.face.ide.source" version="1.0.0.202311072016" download-size="0" install-size="0" unpack="false"/>
+  <plugin id="com.epistimis.face.ui.source" version="1.0.0.202311072016" download-size="0" install-size="0" unpack="false"/>
+</feature>

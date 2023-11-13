@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="face" nsURI="http://www.epistimis.com/face/Face" nsPrefix="face">
+  <eClassifiers xsi:type="ecore:EClass" name="ArchitectureModel" eSuperTypes="#//FaceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dm" upperBound="-1" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//DataModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="um" upperBound="-1" eType="#//UopUoPModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="im" upperBound="-1" eType="#//IntegrationIntegrationModel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FaceElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UoPClientServerRole">
+    <eLiterals name="CLIENT" literal="client"/>
+    <eLiterals name="SERVER" value="1" literal="server"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopFaceProfile">
+    <eLiterals name="GENERAL_PURPOSE" literal="GeneralPurpose"/>
+    <eLiterals name="SECURITY" value="1" literal="Security"/>
+    <eLiterals name="SAFETY_BASE" value="2" literal="SafetyBase"/>
+    <eLiterals name="SAFETY_EXTENDED" value="3" literal="SafetyExtended"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopDesignAssuranceLevel">
+    <eLiterals name="A" literal="a"/>
+    <eLiterals name="B" value="1" literal="b"/>
+    <eLiterals name="C" value="2" literal="c"/>
+    <eLiterals name="D" value="3" literal="d"/>
+    <eLiterals name="E" value="4" literal="e"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopDesignAssuranceStandard">
+    <eLiterals name="DO_178B_ED_12B" literal="DO_178B_ED_12B"/>
+    <eLiterals name="DO_178C_ED_12C" value="1" literal="DO_178C_ED_12C"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopMessageExchangeType">
+    <eLiterals name="INBOUND_MESSAGE" literal="InboundMessage"/>
+    <eLiterals name="OUTBOUND_MESSAGE" value="1" literal="OutboundMessage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopPartitionType">
+    <eLiterals name="POSIX" literal="POSIX"/>
+    <eLiterals name="ARINC653" value="1" literal="ARINC653"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopProgrammingLanguage">
+    <eLiterals name="UNSPECIFIED" literal="Unspecified"/>
+    <eLiterals name="C" value="1" literal="C"/>
+    <eLiterals name="CPP" value="2" literal="cpp"/>
+    <eLiterals name="JAVA" value="3" literal="Java"/>
+    <eLiterals name="ADA" value="4" literal="Ada"/>
+    <eLiterals name="GO" value="5" literal="Go"/>
+    <eLiterals name="JS" value="6" literal="Javascript"/>
+    <eLiterals name="PYTHON" value="7" literal="Python"/>
+    <eLiterals name="RUST" value="8" literal="Rust"/>
+    <eLiterals name="SCALA" value="9" literal="Scala"/>
+    <eLiterals name="SQL" value="10" literal="SQL"/>
+    <eLiterals name="TS" value="11" literal="Typescript"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopSynchronizationStyle">
+    <eLiterals name="BLOCKING" literal="Blocking"/>
+    <eLiterals name="NON_BLOCKING" value="1" literal="NonBlocking"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UopThreadType">
+    <eLiterals name="FOREGROUND" literal="Foreground"/>
+    <eLiterals name="BACKGROUND" value="1" literal="Background"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopUoPModel" eSuperTypes="#//FaceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="um" upperBound="-1" eType="#//UopUoPModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
+        eType="#//UopElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopElement" eSuperTypes="#//FaceElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopSupportingComponent" eSuperTypes="#//UopElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopLanguageRuntime" eSuperTypes="#//UopSupportingComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopComponentFramework" eSuperTypes="#//UopSupportingComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopAbstractUoP" eSuperTypes="#//UopElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" upperBound="-1"
+        eType="#//UopAbstractConnection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopAbstractConnection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conceptualView" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//ConceptualView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logicalView" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//LogicalView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopUnitOfPortability" eSuperTypes="#//UopElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="#//UopAbstractUoP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transportAPILanguage" eType="#//UopProgrammingLanguage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="partitionType" eType="#//UopPartitionType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faceProfile" eType="#//UopFaceProfile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="designAssuranceLevel" eType="#//UopDesignAssuranceLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="designAssuranceStandard"
+        eType="#//UopDesignAssuranceStandard"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memoryRequirements" eType="#//UopRAMMemoryRequirements"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thread" upperBound="-1"
+        eType="#//UopThread" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supportingComponent" unique="false"
+        upperBound="-1" eType="#//UopSupportingComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" upperBound="-1"
+        eType="#//UopConnection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lcmPort" upperBound="-1"
+        eType="#//UopLifeCycleManagementPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementedBy" eType="#//IntegrationIntegrationContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopPortableComponent" eSuperTypes="#//UopUnitOfPortability"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopPlatformSpecificComponent" eSuperTypes="#//UopUnitOfPortability"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopThread">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePriority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativeCoreAffinity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threadType" eType="#//UopThreadType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopRAMMemoryRequirements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heapStackMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heapStackTypical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heapStackMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roDataMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bssMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopConnection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="#//UopAbstractConnection"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synchronizationStyle" eType="#//UopSynchronizationStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapsTo" eType="#//IntegrationTransportNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopClientServerConnection" eSuperTypes="#//UopConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requestType" eType="#//UopMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="responseType" eType="#//UopMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//UoPClientServerRole"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopPubSubConnection" eSuperTypes="#//UopConnection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageExchangeType" eType="#//UopMessageExchangeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageType" eType="#//UopMessageType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopQueuingConnection" eSuperTypes="#//UopPubSubConnection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopSingleInstanceMessageConnection"
+      eSuperTypes="#//UopPubSubConnection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopLifeCycleManagementPort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageExchangeType" eType="#//UopMessageExchangeType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lcmMessageType" eType="#//UopMessageType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopMessageType" eSuperTypes="#//UopElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UopCompositeTemplate" eSuperTypes="#//UopMessageType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//LogicalCompositeQuery"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composition" upperBound="-1"
+        eType="#//UopTemplateComposition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopTemplateComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//UopMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rolename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//LogicalQueryComposition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UopTemplate" eSuperTypes="#//UopMessageType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundQuery" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//PlatformQuery"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveQuery" eType="ecore:EClass platform:/resource/com.epistimis.uddl/model/generated/Uddl.ecore#//PlatformQuery"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationIntegrationModel" eSuperTypes="#//FaceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="im" upperBound="-1" eType="#//IntegrationIntegrationModel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
+        eType="#//IntegrationElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationElement" eSuperTypes="#//FaceElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationIntegrationContext" eSuperTypes="#//IntegrationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1" eType="#//IntegrationTransportNode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" upperBound="-1"
+        eType="#//IntegrationTSNodeConnection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTSNodeConnection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//IntegrationTSNodePortBase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" eType="#//IntegrationTSNodePortBase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTSNodePortBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationUoPInstance" eSuperTypes="#//IntegrationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realizes" eType="#//UopUnitOfPortability"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configurationURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
+        eType="#//IntegrationUoPInputEndPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
+        eType="#//IntegrationUoPOutputEndPoint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationUoPInputEndPoint" eSuperTypes="#//IntegrationTSNodePortBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" eType="#//UopConnection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationUoPOutputEndPoint" eSuperTypes="#//IntegrationTSNodePortBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" eType="#//UopConnection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTransportNode" eSuperTypes="#//FaceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inPort" upperBound="-1"
+        eType="#//IntegrationTSNodeInputPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outPort" eType="#//IntegrationTSNodeOutputPort"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTSNodeInputPort" eSuperTypes="#//IntegrationTSNodePortBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//UopMessageType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTSNodeOutputPort" eSuperTypes="#//IntegrationTSNodePortBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//UopMessageType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewAggregation" eSuperTypes="#//IntegrationTransportNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewFilter" eSuperTypes="#//IntegrationTransportNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewSource" eSuperTypes="#//IntegrationTransportNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewSink" eSuperTypes="#//IntegrationTransportNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewTransformation" eSuperTypes="#//IntegrationTransportNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationViewTransporter" eSuperTypes="#//IntegrationTransportNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channel" eType="#//IntegrationTransportChannel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegrationTransportChannel" eSuperTypes="#//IntegrationElement"/>
+</ecore:EPackage>

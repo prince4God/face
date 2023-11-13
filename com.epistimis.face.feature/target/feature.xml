@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.epistimis.face.feature"
+      label="Face Feature "
+      version="1.0.0.202311072016"
+      provider-name="Epistimis LLC">
+
+   <includes
+         id="com.epistimis.uddl.feature"
+         version="1.0.0.202311071617"
+         name="Universal Data Definition Language"/>
+
+   <includes
+         id="com.epistimis.uddl.query.feature"
+         version="1.0.0.202311070530"
+         name="UDDL Query Language"
+         search-location="both"/>
+
+   <plugin
+         id="com.epistimis.face"
+         download-size="619"
+         install-size="2057"
+         version="1.0.0.202311072016"
+         unpack="false"/>
+
+   <plugin
+         id="com.epistimis.face.ide"
+         download-size="419"
+         install-size="2458"
+         version="1.0.0.202311072016"
+         unpack="false"/>
+
+   <plugin
+         id="com.epistimis.face.ui"
+         download-size="34"
+         install-size="112"
+         version="1.0.0.202311072016"
+         unpack="false"/>
+
+</feature>

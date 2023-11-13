@@ -1,0 +1,6 @@
+-------------------------------------------------------------------------------
+Test set: com.epistimis.face.tests.FaceParsingTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.811 s - in null
+com.epistimis.face.tests.FaceParsingTest.loadModel2  Time elapsed: 0.417 s
+com.epistimis.face.tests.FaceParsingTest.loadModel  Time elapsed: 0.014 s
